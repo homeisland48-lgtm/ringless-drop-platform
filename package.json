@@ -4,7 +4,7 @@
   "description": "Ringless Drop Voicemail Platform",
   "main": "my new files to host/server.js",
   "scripts": {
-    "start": "start": "node main-server.js",
+    "start": "node main-server.js",
     "postinstall": "cd 'my new files to host' && npm install"
   },
   "dependencies": {
