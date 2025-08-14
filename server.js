@@ -586,4 +586,32 @@ app.get('/', (req, res) => {
     res.send('<h1>🎉 Ringless Drop Platform is Live!</h1><p>Your Slybroadcast integration is working!</p><p>Demo: admin@ringlessdrop.com / admin123</p>');
 });
 
+// Homepage route
+app.get('/', (req, res) => {
+    res.send(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Ringless Drop Platform</title>
+            <style>
+                body { font-family: Arial; text-align: center; padding: 50px; background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: white; }
+                .container { max-width: 500px; margin: 0 auto; background: rgba(255,255,255,0.1); padding: 40px; border-radius: 20px; }
+                h1 { font-size: 2.5em; margin-bottom: 20px; }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h1>🎉 Ringless Drop Platform</h1>
+                <h2>✅ Your Platform is Live!</h2>
+                <p>Multi-user ringless voicemail campaigns with Slybroadcast integration</p>
+                <h3>🔑 Demo Login</h3>
+                <p><strong>Email:</strong> admin@ringlessdrop.com</p>
+                <p><strong>Password:</strong> admin123</p>
+                <p><strong>🚀 Ready for customers!</strong></p>
+            </div>
+        </body>
+        </html>
+    `);
+});
+
 module.exports = app;
