@@ -581,4 +581,9 @@ startServer().catch(error => {
     process.exit(1);
 });
 
+// Serve homepage
+app.get('/', (req, res) => {
+    res.send('<h1>🎉 Ringless Drop Platform is Live!</h1><p>Your Slybroadcast integration is working!</p><p>Demo: admin@ringlessdrop.com / admin123</p>');
+});
+
 module.exports = app;
