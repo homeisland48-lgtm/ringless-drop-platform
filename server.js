@@ -29,6 +29,9 @@ const limiter = rateLimit({
 });
 app.use(limiter);
 
+// Serve static files
+app.use(express.static(__dirname));
+
 // Database connection
 const dbConfig = {
     host: process.env.DB_HOST || 'localhost',
