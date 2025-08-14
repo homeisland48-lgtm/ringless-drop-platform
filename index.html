@@ -5,242 +5,471 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ringless Drop - Voicemail Campaigns</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin:0; padding:0; box-sizing:border-box; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%);
-            min-height: 100vh;
-            color: #333;
+            font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background:linear-gradient(135deg,#1e3a8a 0%,#3b82f6 50%,#06b6d4 100%);
+            min-height:100vh; color:#333;
         }
-
-        .login-screen {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .login-container {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            width: 100%;
-            max-width: 350px;
-            text-align: center;
-        }
-
-        .logo-login {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #06b6d4, #3b82f6);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .app-title h1 {
-            font-size: 28px;
-            font-weight: 700;
-            color: #1e40af;
-            margin-bottom: 5px;
-        }
-
-        .app-title p {
-            color: #6b7280;
-            font-size: 16px;
-            margin-bottom: 30px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        .form-label {
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            display: block;
-            color: #374151;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 14px 16px;
-            border: 2px solid #e5e7eb;
-            border-radius: 12px;
-            font-size: 16px;
-            background: white;
-            transition: all 0.2s;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-        }
-
-        .btn-primary {
-            width: 100%;
-            background: linear-gradient(135deg, #1e40af, #3b82f6);
-            color: white;
-            border: none;
-            padding: 16px;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s;
-            margin-bottom: 15px;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #3b82f6;
-            border: 2px solid #3b82f6;
-        }
-
-        .btn-secondary:hover {
-            background: #3b82f6;
-            color: white;
-        }
-
-        .status-message {
-            padding: 12px 16px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            font-weight: 500;
-            display: none;
-        }
-
-        .status-success {
-            background: #d1fae5;
-            color: #065f46;
-        }
-
-        .status-error {
-            background: #fee2e2;
-            color: #991b1b;
-        }
-
-        .demo-info {
-            background: #eff6ff;
-            border: 1px solid #3b82f6;
-            border-radius: 10px;
-            padding: 15px;
-            margin-top: 20px;
-            text-align: center;
-            font-size: 14px;
-        }
+        .container { max-width:420px; margin:0 auto; background:#f8fafc; min-height:100vh; position:relative; }
+        /* Login Screen */
+        .login-screen { display:flex; flex-direction:column; justify-content:center; align-items:center; min-height:100vh; padding:20px; background:linear-gradient(135deg,#1e3a8a 0%,#3b82f6 50%,#06b6d4 100%); }
+        .login-container { background:#fff; padding:40px 30px; border-radius:20px; box-shadow:0 20px 40px rgba(0,0,0,.1); width:100%; max-width:350px; }
+        .logo-login { width:80px; height:80px; background:linear-gradient(135deg,#06b6d4,#3b82f6); border-radius:20px; display:flex; align-items:center; justify-content:center; margin:0 auto 20px; box-shadow:0 10px 30px rgba(0,0,0,.2); position:relative; }
+        .logo-login::before { content:''; position:absolute; top:3px; left:3px; right:3px; bottom:3px; background:linear-gradient(135deg,#38bdf8,#1d4ed8); border-radius:17px; }
+        .cassette-login { width:40px; height:26px; background:rgba(255,255,255,.95); border-radius:6px; position:relative; z-index:2; display:flex; align-items:center; justify-content:space-around; }
+        .cassette-login::before,.cassette-login::after { content:''; width:10px; height:10px; border:2px solid #3b82f6; border-radius:50%; background:#fff; }
+        .app-title{ text-align:center; margin-bottom:30px; }
+        .app-title h1{ font-size:28px; font-weight:700; color:#1e40af; margin-bottom:5px; }
+        .app-title p{ color:#6b7280; font-size:16px; }
+        .form-group{ margin-bottom:20px; }
+        .form-label{ font-size:14px; font-weight:600; margin-bottom:8px; display:block; color:#374151; }
+        .form-input{ width:100%; padding:14px 16px; border:2px solid #e5e7eb; border-radius:12px; font-size:16px; background:#fff; transition:all .2s; }
+        .form-input:focus{ outline:none; border-color:#3b82f6; box-shadow:0 0 0 3px rgba(59,130,246,.1); }
+        .btn-primary{ width:100%; background:linear-gradient(135deg,#1e40af,#3b82f6); color:#fff; border:none; padding:16px; border-radius:12px; font-size:16px; font-weight:600; cursor:pointer; transition:transform .2s; margin-bottom:15px; }
+        .btn-primary:hover{ transform:translateY(-2px); }
+        .btn-secondary{ background:transparent; color:#3b82f6; border:2px solid #3b82f6; }
+        .btn-secondary:hover{ background:#3b82f6; color:#fff; }
+        /* Main App */
+        .header{ background:linear-gradient(135deg,#1e40af,#3b82f6); padding:20px; color:#fff; position:relative; }
+        .menu-btn,.admin-btn{ position:absolute; left:20px; top:25px; background:none; border:none; color:#fff; font-size:20px; cursor:pointer; padding:5px; }
+        .admin-btn{ left:60px; font-size:16px; }
+        .sign-out-btn{ position:absolute; right:20px; top:20px; background:#000; color:#fff; border:none; padding:8px 16px; border-radius:6px; font-size:14px; cursor:pointer; }
+        .logo-container{ display:flex; align-items:center; justify-content:center; gap:15px; margin:15px 0; }
+        .logo{ width:50px; height:50px; background:linear-gradient(135deg,#06b6d4,#3b82f6); border-radius:14px; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 25px rgba(0,0,0,.2); position:relative; }
+        .logo::before{ content:''; position:absolute; top:2px; left:2px; right:2px; bottom:2px; background:linear-gradient(135deg,#38bdf8,#1d4ed8); border-radius:12px; }
+        .cassette{ width:24px; height:16px; background:rgba(255,255,255,.95); border-radius:3px; position:relative; z-index:2; display:flex; align-items:center; justify-content:space-around; }
+        .cassette::before,.cassette::after{ content:''; width:6px; height:6px; border:1.5px solid #3b82f6; border-radius:50%; background:#fff; }
+        .welcome-text{ font-size:16px; margin-bottom:5px; text-align:center; }
+        .username{ font-size:14px; opacity:.9; text-align:center; }
+        .user-credits{ background:rgba(255,255,255,.2); padding:8px 16px; border-radius:20px; font-size:14px; margin-top:10px; text-align:center; }
+        /* Tabs */
+        .nav-tabs{ background:#fff; display:flex; border-bottom:1px solid #e5e7eb; }
+        .nav-tab{ flex:1; padding:15px 10px; text-align:center; background:none; border:none; font-size:14px; font-weight:600; cursor:pointer; color:#6b7280; transition:all .2s; }
+        .nav-tab.active{ color:#3b82f6; border-bottom:3px solid #3b82f6; }
+        /* Content */
+        .content{ padding:20px; display:none; }
+        .content.active{ display:block; }
+        /* History */
+        .campaign-item{ background:#fff; border-radius:12px; padding:16px; margin-bottom:15px; box-shadow:0 2px 8px rgba(0,0,0,.1); border-left:4px solid #3b82f6; }
+        .campaign-header{ display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; }
+        .campaign-id{ font-weight:600; color:#1e40af; }
+        .campaign-status{ padding:4px 12px; border-radius:20px; font-size:12px; font-weight:600; }
+        .status-running{ background:#fef3c7; color:#92400e; }
+        .status-completed{ background:#d1fae5; color:#065f46; }
+        .status-failed{ background:#fee2e2; color:#991b1b; }
+        .campaign-details{ font-size:14px; color:#6b7280; line-height:1.4; }
+        .campaign-progress{ margin-top:10px; }
+        .progress-bar{ background:#e5e7eb; border-radius:10px; height:8px; overflow:hidden; }
+        .progress-fill{ height:100%; background:linear-gradient(90deg,#3b82f6,#06b6d4); border-radius:10px; transition:width .3s; }
+        .progress-text{ font-size:12px; color:#6b7280; margin-top:5px; }
+        /* Admin */
+        .admin-panel{ background:#fff; border-radius:12px; padding:20px; margin-bottom:20px; box-shadow:0 4px 12px rgba(0,0,0,.1); }
+        .admin-header{ display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; padding-bottom:15px; border-bottom:2px solid #e5e7eb; }
+        .admin-title{ font-size:20px; font-weight:700; color:#1e40af; }
+        .stats-grid{ display:grid; grid-template-columns:1fr 1fr; gap:15px; margin-bottom:20px; }
+        .stat-card{ background:linear-gradient(135deg,#f8fafc,#e2e8f0); padding:15px; border-radius:10px; text-align:center; }
+        .stat-number{ font-size:24px; font-weight:700; color:#1e40af; }
+        .stat-label{ font-size:12px; color:#6b7280; margin-top:5px; }
+        .user-list{ max-height:300px; overflow-y:auto; }
+        .user-item{ display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid #e5e7eb; }
+        .user-info{ flex:1; }
+        .user-name{ font-weight:600; color:#374151; }
+        .user-email{ font-size:12px; color:#6b7280; }
+        .user-credits-badge{ background:#3b82f6; color:#fff; padding:4px 8px; border-radius:12px; font-size:12px; margin-right:10px; }
+        .btn-small{ padding:6px 12px; font-size:12px; border-radius:6px; border:none; cursor:pointer; margin-left:5px; }
+        .btn-edit{ background:#f59e0b; color:#fff; }
+        .btn-delete{ background:#ef4444; color:#fff; }
+        /* Forms */
+        .form-textarea{ min-height:100px; resize:vertical; }
+        .info-box{ background:linear-gradient(135deg,#06b6d4,#3b82f6); color:#fff; padding:10px 14px; border-radius:10px; margin-top:8px; font-size:13px; line-height:1.4; }
+        .format-example{ color:#6b7280; font-size:13px; margin-top:4px; }
+        .counter{ text-align:right; margin-top:8px; font-size:14px; font-weight:600; }
+        .counter .number{ color:#3b82f6; }
+        .status-message{ padding:12px 16px; border-radius:8px; margin-bottom:15px; font-weight:500; display:none; }
+        .status-success{ background:#d1fae5; color:#065f46; border:1px solid #a7f3d0; }
+        .status-error{ background:#fee2e2; color:#991b1b; border:1px solid #fca5a5; }
+        .footer{ text-align:center; padding:20px; color:#6b7280; font-size:12px; background:#f8fafc; border-top:1px solid #e5e7eb; }
+        .footer a{ color:#3b82f6; text-decoration:none; }
+        /* Responsive */
+        @media (max-width:480px){ .container{ max-width:100%; } .stats-grid{ grid-template-columns:1fr; } }
+        /* Misc */
+        .loading{ opacity:.7; pointer-events:none; }
+        .pulse{ animation:pulse 2s infinite; }
+        @keyframes pulse{ 0%,100%{opacity:1} 50%{opacity:.5} }
+        .hidden{ display:none !important; }
     </style>
 </head>
 <body>
-    <div class="login-screen">
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-screen">
         <div class="login-container">
-            <div class="logo-login">
-                <div style="color: white; font-size: 30px;">🎯</div>
-            </div>
-            
+            <div class="logo-login"><div class="cassette-login"></div></div>
             <div class="app-title">
                 <h1>Ringless Drop</h1>
                 <p>Voicemail Campaign Platform</p>
             </div>
-
-            <div id="statusMessage" class="status-message"></div>
-
             <form id="loginForm">
                 <div class="form-group">
                     <label class="form-label">Email</label>
                     <input type="email" id="loginEmail" class="form-input" placeholder="Enter your email" required>
                 </div>
-                
                 <div class="form-group">
                     <label class="form-label">Password</label>
                     <input type="password" id="loginPassword" class="form-input" placeholder="Enter your password" required>
                 </div>
-                
-                <button type="submit" class="btn-primary">Sign In</button>
+                <button type="submit" class="btn-primary" id="loginBtn">Sign In</button>
                 <button type="button" id="showRegister" class="btn-primary btn-secondary">Create Account</button>
             </form>
+        </div>
+    </div>
 
-            <div class="demo-info">
-                <strong>🎉 Platform is Live!</strong><br><br>
-                <strong>Demo Login:</strong><br>
-                Email: admin@ringlessdrop.com<br>
-                Password: admin123<br><br>
-                <small>Your Slybroadcast integration is ready!</small>
+    <!-- Registration Screen -->
+    <div id="registerScreen" class="login-screen hidden">
+        <div class="login-container">
+            <div class="logo-login"><div class="cassette-login"></div></div>
+            <div class="app-title">
+                <h1>Create Account</h1>
+                <p>Join Ringless Drop Platform</p>
             </div>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" id="registerName" class="form-input" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" id="registerEmail" class="form-input" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input type="password" id="registerPassword" class="form-input" placeholder="Create a password" required>
+                </div>
+                <button type="submit" class="btn-primary" id="registerBtn">Create Account</button>
+                <button type="button" id="showLogin" class="btn-primary btn-secondary">Back to Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="mainApp" class="container hidden">
+        <div class="header">
+            <button class="menu-btn">☰</button>
+            <button id="adminBtn" class="admin-btn hidden">⚙️</button>
+            <button class="sign-out-btn" id="signOutBtn">Sign Out</button>
+            <div class="logo-container"><div class="logo"><div class="cassette"></div></div></div>
+            <div class="welcome-text">Welcome Back</div>
+            <div class="username" id="currentUsername">Loading...</div>
+            <div class="user-credits" id="userCredits">Credits: Loading...</div>
+        </div>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" data-tab="campaign">New Campaign</button>
+            <button class="nav-tab" data-tab="history">History</button>
+            <button class="nav-tab" data-tab="admin" id="adminTabBtn" style="display:none;">Admin</button>
+        </div>
+
+        <!-- New Campaign Tab -->
+        <div id="campaignContent" class="content active">
+            <div id="statusMessage" class="status-message"></div>
+            <form id="campaignForm">
+                <div class="form-group">
+                    <label class="form-label">Sender ID</label>
+                    <input type="tel" id="senderId" class="form-input" placeholder="8886524442" required>
+                    <div class="format-example">Format: 15850000000 (numbers only, no +1)</div>
+                    <div class="info-box">Sender ID must be numerical only, no special characters</div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Receiver Phone Numbers</label>
+                    <textarea id="receiverNumbers" class="form-input form-textarea" placeholder="2838485858&#10;8384959595&#10;4849505059" required></textarea>
+                    <div class="counter">
+                        <span class="number" id="numberCount">0</span> Numbers (<span id="creditCount">0</span> Credits)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Audio File URL</label>
+                    <input type="url" id="audioFile" class="form-input" placeholder="https://dl.sndup.net/9gkyh/randave1.mp3" required>
+                    <div class="info-box">Supported formats: .WAV, .MP3, .M4A files only</div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Audio File Type</label>
+                    <select id="audioFileType" class="form-input" required>
+                        <option value="">Select file type</option>
+                        <option value="mp3">MP3</option>
+                        <option value="wav">WAV</option>
+                        <option value="m4a">M4A</option>
+                    </select>
+                </div>
+                <button type="submit" id="sendBtn" class="btn-primary">Send Campaign</button>
+            </form>
+        </div>
+
+        <!-- Campaign History Tab -->
+        <div id="historyContent" class="content">
+            <div id="campaignHistory"></div>
+        </div>
+
+        <!-- Admin Panel Tab -->
+        <div id="adminContent" class="content">
+            <div class="admin-panel">
+                <div class="admin-header">
+                    <h2 class="admin-title">Admin Dashboard</h2>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card"><div class="stat-number" id="totalUsers">0</div><div class="stat-label">Total Users</div></div>
+                    <div class="stat-card"><div class="stat-number" id="totalCampaigns">0</div><div class="stat-label">Total Campaigns</div></div>
+                    <div class="stat-card"><div class="stat-number" id="activeCampaigns">0</div><div class="stat-label">Active Campaigns</div></div>
+                    <div class="stat-card"><div class="stat-number" id="totalCreditsUsed">0</div><div class="stat-label">Credits Used</div></div>
+                </div>
+                <h3 style="margin-bottom:15px; color:#374151;">User Management</h3>
+                <div class="user-list" id="userList"></div>
+            </div>
+        </div>
+
+        <div class="footer">
+            Copyright © 2024 <a href="#">Jay</a>. All rights reserved.<br>
+            <a href="#">ringlessdrop.com</a>
         </div>
     </div>
 
     <script>
-        document.getElementById('loginForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
-            
-            try {
-                const response = await fetch('/api/auth/login', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ email, password })
-                });
-                
-                const data = await response.json();
-                
-                if (response.ok) {
-                    showStatus('✅ Login successful! Welcome ' + data.user.name);
-                    localStorage.setItem('user', JSON.stringify(data.user));
-                    localStorage.setItem('token', data.token);
-                    setTimeout(() => {
-                        showStatus('🎉 Platform working perfectly! Credits: ' + data.user.credits);
-                    }, 2000);
-                } else {
-                    showStatus('❌ ' + data.error, true);
-                }
-            } catch (error) {
-                showStatus('❌ Login failed. Please try again.', true);
-            }
-        });
+        // ========= CONFIG =========
+        const BASE_URL = 'https://ringless-6bc73325b4a8.herokuapp.com'.replace(/\/+$/, '');
+        const TOKEN_KEY = 'rd_token';
+        const USER_KEY  = 'rd_user';
 
-        document.getElementById('showRegister').addEventListener('click', function() {
-            showStatus('🚀 Registration feature coming soon! Use demo login for now.');
-        });
+        // ========= STATE =========
+        let currentUser = null;
+        let isAdmin = false;
 
-        function showStatus(message, isError = false) {
-            const statusMessage = document.getElementById('statusMessage');
-            statusMessage.textContent = message;
-            statusMessage.className = `status-message ${isError ? 'status-error' : 'status-success'}`;
-            statusMessage.style.display = 'block';
+        // ========= HELPERS =========
+        const qs  = (sel) => document.querySelector(sel);
+        const qsa = (sel) => Array.from(document.querySelectorAll(sel));
+
+        function showStatus(message, isError=false){
+            const el = qs('#statusMessage');
+            el.textContent = message;
+            el.className = `status-message ${isError ? 'status-error':'status-success'}`;
+            el.style.display = 'block';
+            setTimeout(()=>{ el.style.display='none'; }, 5000);
         }
 
-        // Test API connection
-        fetch('/api/health')
-            .then(response => response.json())
-            .then(data => {
-                console.log('✅ API Status:', data.status);
-            })
-            .catch(error => {
-                console.log('⏳ API starting up...');
+        function setLoading(btn, loading) {
+            if (!btn) return;
+            if (loading) {
+                btn.dataset._text = btn.textContent;
+                btn.textContent = 'Please wait...';
+                btn.classList.add('loading');
+                btn.disabled = true;
+            } else {
+                btn.textContent = btn.dataset._text || btn.textContent;
+                btn.classList.remove('loading');
+                btn.disabled = false;
+            }
+        }
+
+        async function api(path, { method='GET', body, auth=true } = {}) {
+            const headers = { 'Content-Type':'application/json' };
+            if (auth) {
+                const token = localStorage.getItem(TOKEN_KEY);
+                if (token) headers['Authorization'] = `Bearer ${token}`;
+            }
+            const res = await fetch(`${BASE_URL}${path}`, {
+                method,
+                headers,
+                body: body ? JSON.stringify(body) : undefined
             });
-    </script>
-</body>
-</html>
+            const isJSON = res.headers.get('content-type')?.includes('application/json');
+            const data = isJSON ? await res.json() : await res.text();
+            if (!res.ok) throw new Error((data && data.error) || (typeof data === 'string' ? data : 'Request failed'));
+            return data;
+        }
+
+        function saveSession({ user, token }) {
+            currentUser = user;
+            localStorage.setItem(TOKEN_KEY, token);
+            localStorage.setItem(USER_KEY, JSON.stringify(user));
+        }
+
+        function clearSession() {
+            localStorage.removeItem(TOKEN_KEY);
+            localStorage.removeItem(USER_KEY);
+            currentUser = null;
+        }
+
+        // ========= UI SWITCHERS =========
+        function showLoginScreen(){
+            qs('#loginScreen').classList.remove('hidden');
+            qs('#registerScreen').classList.add('hidden');
+            qs('#mainApp').classList.add('hidden');
+        }
+        function showRegisterScreen(){
+            qs('#loginScreen').classList.add('hidden');
+            qs('#registerScreen').classList.remove('hidden');
+            qs('#mainApp').classList.add('hidden');
+        }
+        function showMainApp(){
+            qs('#loginScreen').classList.add('hidden');
+            qs('#registerScreen').classList.add('hidden');
+            qs('#mainApp').classList.remove('hidden');
+
+            // Update user info
+            qs('#currentUsername').textContent = currentUser.name;
+            qs('#userCredits').textContent = `Credits: ${Number(currentUser.credits||0).toLocaleString()}`;
+
+            // Admin visibility
+            isAdmin = !!currentUser.isAdmin;
+            if (isAdmin) {
+                qs('#adminBtn').classList.remove('hidden');
+                qs('#adminTabBtn').style.display = 'block';
+            } else {
+                qs('#adminBtn').classList.add('hidden');
+                qs('#adminTabBtn').style.display = 'none';
+            }
+            // load initial data
+            switchTab('campaign');
+            loadCampaignHistory();
+            if (isAdmin) loadAdminData();
+        }
+
+        function switchTab(name){
+            qsa('.nav-tab').forEach(t=>t.classList.toggle('active', t.dataset.tab===name));
+            qsa('.content').forEach(c=>c.classList.remove('active'));
+            qs(`#${name}Content`).classList.add('active');
+            if (name==='history') loadCampaignHistory();
+            if (name==='admin' && isAdmin) loadAdminData();
+        }
+
+        // ========= AUTH HANDLERS =========
+        async function handleLogin(e){
+            e.preventDefault();
+            const btn = qs('#loginBtn');
+            setLoading(btn, true);
+            try{
+                const email = qs('#loginEmail').value.trim();
+                const password = qs('#loginPassword').value.trim();
+                const data = await api('/api/auth/login', { method:'POST', body:{ email, password }, auth:false });
+                saveSession(data);
+                showMainApp();
+            }catch(err){
+                showStatus(err.message || 'Login failed', true);
+            }finally{
+                setLoading(btn, false);
+            }
+        }
+
+        async function handleRegister(e){
+            e.preventDefault();
+            const btn = qs('#registerBtn');
+            setLoading(btn, true);
+            try{
+                const name = qs('#registerName').value.trim();
+                const email = qs('#registerEmail').value.trim();
+                const password = qs('#registerPassword').value.trim();
+                const data = await api('/api/auth/register', { method:'POST', body:{ name, email, password }, auth:false });
+                saveSession(data);
+                showMainApp();
+            }catch(err){
+                showStatus(err.message || 'Registration failed', true);
+            }finally{
+                setLoading(btn, false);
+            }
+        }
+
+        function handleSignOut(){
+            clearSession();
+            showLoginScreen();
+        }
+
+        // ========= CAMPAIGNS =========
+        function updateNumberCount(){
+            const numbers = qs('#receiverNumbers').value
+                .split('\n')
+                .map(s=>s.trim())
+                .filter(Boolean);
+            const count = numbers.length;
+            qs('#numberCount').textContent = count;
+            qs('#creditCount').textContent = count;
+        }
+
+        async function handleCampaignSubmit(e){
+            e.preventDefault();
+            const btn = qs('#sendBtn');
+            setLoading(btn, true);
+            try{
+                const senderId = qs('#senderId').value.trim().replace(/[^0-9]/g,'');
+                const receiverNumbers = qs('#receiverNumbers').value
+                    .split('\n').map(s=>s.trim()).filter(Boolean);
+                const audioFile = qs('#audioFile').value.trim();
+                const audioFileType = qs('#audioFileType').value;
+
+                if(!senderId || !receiverNumbers.length || !audioFile || !audioFileType){
+                    showStatus('Please fill in all required fields', true);
+                    setLoading(btn, false);
+                    return;
+                }
+
+                // POST to backend
+                const res = await api('/api/campaigns', {
+                    method:'POST',
+                    body:{ senderId, receiverNumbers, audioFile, audioFileType }
+                });
+
+                // Refresh profile credits & history
+                await refreshProfile();
+                showStatus(`Campaign sent! ID: ${res.campaignId}`);
+                qs('#campaignForm').reset();
+                updateNumberCount();
+                loadCampaignHistory();
+            }catch(err){
+                showStatus(err.message || 'Failed to send campaign', true);
+            }finally{
+                setLoading(btn, false);
+            }
+        }
+
+        async function loadCampaignHistory(){
+            try{
+                const items = await api('/api/campaigns');
+                const container = qs('#campaignHistory');
+                if (!items || !items.length){
+                    container.innerHTML = `
+                        <div style="text-align:center; padding:40px; color:#6b7280;">
+                            <div style="font-size:48px; margin-bottom:16px;">📧</div>
+                            <h3>No campaigns yet</h3>
+                            <p>Create your first ringless voicemail campaign!</p>
+                        </div>`;
+                    return;
+                }
+                container.innerHTML = items.map(c => `
+                    <div class="campaign-item">
+                        <div class="campaign-header">
+                            <div class="campaign-id">${c.id}</div>
+                            <div class="campaign-status status-${c.status}">${String(c.status||'').toUpperCase()}</div>
+                        </div>
+                        <div class="campaign-details">
+                            <strong>Recipients:</strong> ${c.recipient_count ?? c.recipientCount} numbers<br>
+                            <strong>Sender ID:</strong> ${c.sender_id ?? c.senderId}<br>
+                            <strong>Audio:</strong> ${(c.audio_file_type ?? c.audioFileType || '').toString().toUpperCase()} file<br>
+                            <strong>Created:</strong> ${new Date(c.created_at || c.createdAt).toLocaleString()}
+                            ${isAdmin ? `<br><strong>User:</strong> ${c.user_name || ''}` : ''}
+                        </div>
+                        ${c.status === 'running' ? `
+                            <div class="campaign-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width:${c.progress || 0}%"></div>
+                                </div>
+                                <div class="progress-text">${Math.round(c.progress||0)}% complete</div>
+                            </div>` : ''}
+                    </div>
+                `).join('');
+            }catch(err){
+                showStatus('Failed to load campaigns: ' + err.message, true);
+            }
+        }
+
+        // ========= ADMIN =========
+        async function loadAdminData(){
+            try{
+                const [stats, users] = await Promise.all([
+                    api('/api/admin/st
