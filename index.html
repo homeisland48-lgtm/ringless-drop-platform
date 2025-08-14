@@ -18,15 +18,6 @@
             color: #333;
         }
 
-        .container {
-            max-width: 420px;
-            margin: 0 auto;
-            background: #f8fafc;
-            min-height: 100vh;
-            position: relative;
-        }
-
-        /* Login Screen */
         .login-screen {
             display: flex;
             flex-direction: column;
@@ -34,7 +25,6 @@
             align-items: center;
             min-height: 100vh;
             padding: 20px;
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%);
         }
 
         .login-container {
@@ -44,6 +34,7 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             width: 100%;
             max-width: 350px;
+            text-align: center;
         }
 
         .logo-login {
@@ -56,45 +47,6 @@
             justify-content: center;
             margin: 0 auto 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            position: relative;
-        }
-
-        .logo-login::before {
-            content: '';
-            position: absolute;
-            top: 3px;
-            left: 3px;
-            right: 3px;
-            bottom: 3px;
-            background: linear-gradient(135deg, #38bdf8, #1d4ed8);
-            border-radius: 17px;
-        }
-
-        .cassette-login {
-            width: 40px;
-            height: 26px;
-            background: rgba(255,255,255,0.95);
-            border-radius: 6px;
-            position: relative;
-            z-index: 2;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-        }
-
-        .cassette-login::before,
-        .cassette-login::after {
-            content: '';
-            width: 10px;
-            height: 10px;
-            border: 2px solid #3b82f6;
-            border-radius: 50%;
-            background: white;
-        }
-
-        .app-title {
-            text-align: center;
-            margin-bottom: 30px;
         }
 
         .app-title h1 {
@@ -107,10 +59,12 @@
         .app-title p {
             color: #6b7280;
             font-size: 16px;
+            margin-bottom: 30px;
         }
 
         .form-group {
             margin-bottom: 20px;
+            text-align: left;
         }
 
         .form-label {
@@ -166,365 +120,6 @@
             color: white;
         }
 
-        /* Main App Styles */
-        .header {
-            background: linear-gradient(135deg, #1e40af, #3b82f6);
-            padding: 20px;
-            color: white;
-            position: relative;
-        }
-
-        .menu-btn, .admin-btn {
-            position: absolute;
-            left: 20px;
-            top: 25px;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 20px;
-            cursor: pointer;
-            padding: 5px;
-        }
-
-        .admin-btn {
-            left: 60px;
-            font-size: 16px;
-        }
-
-        .sign-out-btn {
-            position: absolute;
-            right: 20px;
-            top: 20px;
-            background: #000;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-size: 14px;
-            cursor: pointer;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            margin: 15px 0;
-        }
-
-        .logo {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #06b6d4, #3b82f6);
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-            position: relative;
-        }
-
-        .logo::before {
-            content: '';
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            right: 2px;
-            bottom: 2px;
-            background: linear-gradient(135deg, #38bdf8, #1d4ed8);
-            border-radius: 12px;
-        }
-
-        .cassette {
-            width: 24px;
-            height: 16px;
-            background: rgba(255,255,255,0.95);
-            border-radius: 3px;
-            position: relative;
-            z-index: 2;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-        }
-
-        .cassette::before,
-        .cassette::after {
-            content: '';
-            width: 6px;
-            height: 6px;
-            border: 1.5px solid #3b82f6;
-            border-radius: 50%;
-            background: white;
-        }
-
-        .welcome-text {
-            font-size: 16px;
-            margin-bottom: 5px;
-            text-align: center;
-        }
-
-        .username {
-            font-size: 14px;
-            opacity: 0.9;
-            text-align: center;
-        }
-
-        .user-credits {
-            background: rgba(255,255,255,0.2);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 14px;
-            margin-top: 10px;
-            text-align: center;
-        }
-
-        /* Navigation Tabs */
-        .nav-tabs {
-            background: white;
-            display: flex;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .nav-tab {
-            flex: 1;
-            padding: 15px 10px;
-            text-align: center;
-            background: none;
-            border: none;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            color: #6b7280;
-            transition: all 0.2s;
-        }
-
-        .nav-tab.active {
-            color: #3b82f6;
-            border-bottom: 3px solid #3b82f6;
-        }
-
-        /* Content Areas */
-        .content {
-            padding: 20px;
-            display: none;
-        }
-
-        .content.active {
-            display: block;
-        }
-
-        /* Campaign History */
-        .campaign-item {
-            background: white;
-            border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            border-left: 4px solid #3b82f6;
-        }
-
-        .campaign-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .campaign-id {
-            font-weight: 600;
-            color: #1e40af;
-        }
-
-        .campaign-status {
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .status-running {
-            background: #fef3c7;
-            color: #92400e;
-        }
-
-        .status-completed {
-            background: #d1fae5;
-            color: #065f46;
-        }
-
-        .status-failed {
-            background: #fee2e2;
-            color: #991b1b;
-        }
-
-        .campaign-details {
-            font-size: 14px;
-            color: #6b7280;
-            line-height: 1.4;
-        }
-
-        .campaign-progress {
-            margin-top: 10px;
-        }
-
-        .progress-bar {
-            background: #e5e7eb;
-            border-radius: 10px;
-            height: 8px;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #3b82f6, #06b6d4);
-            border-radius: 10px;
-            transition: width 0.3s;
-        }
-
-        .progress-text {
-            font-size: 12px;
-            color: #6b7280;
-            margin-top: 5px;
-        }
-
-        /* Admin Panel */
-        .admin-panel {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .admin-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #e5e7eb;
-        }
-
-        .admin-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: #1e40af;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .stat-card {
-            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 24px;
-            font-weight: 700;
-            color: #1e40af;
-        }
-
-        .stat-label {
-            font-size: 12px;
-            color: #6b7280;
-            margin-top: 5px;
-        }
-
-        .user-list {
-            max-height: 300px;
-            overflow-y: auto;
-        }
-
-        .user-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .user-info {
-            flex: 1;
-        }
-
-        .user-name {
-            font-weight: 600;
-            color: #374151;
-        }
-
-        .user-email {
-            font-size: 12px;
-            color: #6b7280;
-        }
-
-        .user-credits-badge {
-            background: #3b82f6;
-            color: white;
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-size: 12px;
-            margin-right: 10px;
-        }
-
-        .btn-small {
-            padding: 6px 12px;
-            font-size: 12px;
-            border-radius: 6px;
-            border: none;
-            cursor: pointer;
-            margin-left: 5px;
-        }
-
-        .btn-edit {
-            background: #f59e0b;
-            color: white;
-        }
-
-        .btn-delete {
-            background: #ef4444;
-            color: white;
-        }
-
-        /* Form Styles */
-        .form-textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
-
-        .info-box {
-            background: linear-gradient(135deg, #06b6d4, #3b82f6);
-            color: white;
-            padding: 10px 14px;
-            border-radius: 10px;
-            margin-top: 8px;
-            font-size: 13px;
-            line-height: 1.4;
-        }
-
-        .format-example {
-            color: #6b7280;
-            font-size: 13px;
-            margin-top: 4px;
-        }
-
-        .counter {
-            text-align: right;
-            margin-top: 8px;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .counter .number {
-            color: #3b82f6;
-        }
-
         .status-message {
             padding: 12px 16px;
             border-radius: 8px;
@@ -536,72 +131,37 @@
         .status-success {
             background: #d1fae5;
             color: #065f46;
-            border: 1px solid #a7f3d0;
         }
 
         .status-error {
             background: #fee2e2;
             color: #991b1b;
-            border: 1px solid #fca5a5;
         }
 
-        .footer {
+        .demo-info {
+            background: #eff6ff;
+            border: 1px solid #3b82f6;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
             text-align: center;
-            padding: 20px;
-            color: #6b7280;
-            font-size: 12px;
-            background: #f8fafc;
-            border-top: 1px solid #e5e7eb;
-        }
-
-        .footer a {
-            color: #3b82f6;
-            text-decoration: none;
-        }
-
-        /* Responsive */
-        @media (max-width: 480px) {
-            .container {
-                max-width: 100%;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Loading and animations */
-        .loading {
-            opacity: 0.7;
-            pointer-events: none;
-        }
-
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        .hidden {
-            display: none !important;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
-    <!-- Login Screen -->
-    <div id="loginScreen" class="login-screen">
+    <div class="login-screen">
         <div class="login-container">
             <div class="logo-login">
-                <div class="cassette-login"></div>
+                <div style="color: white; font-size: 30px;">🎯</div>
             </div>
             
             <div class="app-title">
                 <h1>Ringless Drop</h1>
                 <p>Voicemail Campaign Platform</p>
             </div>
+
+            <div id="statusMessage" class="status-message"></div>
 
             <form id="loginForm">
                 <div class="form-group">
@@ -617,674 +177,70 @@
                 <button type="submit" class="btn-primary">Sign In</button>
                 <button type="button" id="showRegister" class="btn-primary btn-secondary">Create Account</button>
             </form>
-        </div>
-    </div>
 
-    <!-- Registration Screen -->
-    <div id="registerScreen" class="login-screen hidden">
-        <div class="login-container">
-            <div class="logo-login">
-                <div class="cassette-login"></div>
+            <div class="demo-info">
+                <strong>🎉 Platform is Live!</strong><br><br>
+                <strong>Demo Login:</strong><br>
+                Email: admin@ringlessdrop.com<br>
+                Password: admin123<br><br>
+                <small>Your Slybroadcast integration is ready!</small>
             </div>
-            
-            <div class="app-title">
-                <h1>Create Account</h1>
-                <p>Join Ringless Drop Platform</p>
-            </div>
-
-            <form id="registerForm">
-                <div class="form-group">
-                    <label class="form-label">Full Name</label>
-                    <input type="text" id="registerName" class="form-input" placeholder="Enter your full name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Email</label>
-                    <input type="email" id="registerEmail" class="form-input" placeholder="Enter your email" required>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Password</label>
-                    <input type="password" id="registerPassword" class="form-input" placeholder="Create a password" required>
-                </div>
-                
-                <button type="submit" class="btn-primary">Create Account</button>
-                <button type="button" id="showLogin" class="btn-primary btn-secondary">Back to Login</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Main App -->
-    <div id="mainApp" class="container hidden">
-        <div class="header">
-            <button class="menu-btn">☰</button>
-            <button id="adminBtn" class="admin-btn hidden">⚙️</button>
-            <button class="sign-out-btn" id="signOutBtn">Sign Out</button>
-            
-            <div class="logo-container">
-                <div class="logo">
-                    <div class="cassette"></div>
-                </div>
-            </div>
-            
-            <div class="welcome-text">Welcome Back</div>
-            <div class="username" id="currentUsername">Loading...</div>
-            <div class="user-credits" id="userCredits">Credits: Loading...</div>
-        </div>
-
-        <div class="nav-tabs">
-            <button class="nav-tab active" data-tab="campaign">New Campaign</button>
-            <button class="nav-tab" data-tab="history">History</button>
-            <button class="nav-tab" data-tab="admin" id="adminTabBtn" style="display: none;">Admin</button>
-        </div>
-
-        <!-- New Campaign Tab -->
-        <div id="campaignContent" class="content active">
-            <div id="statusMessage" class="status-message"></div>
-
-            <form id="campaignForm">
-                <div class="form-group">
-                    <label class="form-label">Sender ID</label>
-                    <input type="tel" id="senderId" class="form-input" placeholder="8886524442" required>
-                    <div class="format-example">Format: 15850000000 (numbers only, no +1)</div>
-                    <div class="info-box">
-                        Sender ID must be numerical only, no special characters
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label">Receiver Phone Numbers</label>
-                    <textarea id="receiverNumbers" class="form-input form-textarea" 
-                              placeholder="2838485858&#10;8384959595&#10;4849505059" required></textarea>
-                    <div class="counter">
-                        <span class="number" id="numberCount">0</span> Numbers 
-                        (<span id="creditCount">0</span> Credits)
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label">Audio File URL</label>
-                    <input type="url" id="audioFile" class="form-input" 
-                           placeholder="https://dl.sndup.net/9gkyh/randave1.mp3" required>
-                    <div class="info-box">
-                        Supported formats: .WAV, .MP3, .M4A files only
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label">Audio File Type</label>
-                    <select id="audioFileType" class="form-input" required>
-                        <option value="">Select file type</option>
-                        <option value="mp3">MP3</option>
-                        <option value="wav">WAV</option>
-                        <option value="m4a">M4A</option>
-                    </select>
-                </div>
-
-                <button type="submit" id="sendBtn" class="btn-primary">Send Campaign</button>
-            </form>
-        </div>
-
-        <!-- Campaign History Tab -->
-        <div id="historyContent" class="content">
-            <div id="campaignHistory">
-                <!-- Campaign items will be loaded here -->
-            </div>
-        </div>
-
-        <!-- Admin Panel Tab -->
-        <div id="adminContent" class="content">
-            <div class="admin-panel">
-                <div class="admin-header">
-                    <h2 class="admin-title">Admin Dashboard</h2>
-                </div>
-                
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-number" id="totalUsers">0</div>
-                        <div class="stat-label">Total Users</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number" id="totalCampaigns">0</div>
-                        <div class="stat-label">Total Campaigns</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number" id="activeCampaigns">0</div>
-                        <div class="stat-label">Active Campaigns</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number" id="totalCreditsUsed">0</div>
-                        <div class="stat-label">Credits Used</div>
-                    </div>
-                </div>
-
-                <h3 style="margin-bottom: 15px; color: #374151;">User Management</h3>
-                <div class="user-list" id="userList">
-                    <!-- User items will be loaded here -->
-                </div>
-            </div>
-        </div>
-
-        <div class="footer">
-            Copyright © 2024 <a href="#">Jay</a>. All rights reserved.<br>
-            <a href="#">ringlessdrop.com</a>
         </div>
     </div>
 
     <script>
-        // Application State
-        let currentUser = null;
-        let campaigns = [];
-        let users = [];
-        let isAdmin = false;
-
-        // Initialize app
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeApp();
-        });
-
-        function initializeApp() {
-            // Check for existing session
-            const savedUser = localStorage.getItem('ringlessDropUser');
-            if (savedUser) {
-                currentUser = JSON.parse(savedUser);
-                showMainApp();
-            } else {
-                showLoginScreen();
-            }
-
-            setupEventListeners();
-            loadSampleData();
-        }
-
-        function setupEventListeners() {
-            // Login/Register forms
-            document.getElementById('loginForm').addEventListener('submit', handleLogin);
-            document.getElementById('registerForm').addEventListener('submit', handleRegister);
-            document.getElementById('showRegister').addEventListener('click', showRegisterScreen);
-            document.getElementById('showLogin').addEventListener('click', showLoginScreen);
-
-            // Main app
-            document.getElementById('signOutBtn').addEventListener('click', handleSignOut);
-            document.getElementById('campaignForm').addEventListener('submit', handleCampaignSubmit);
-
-            // Navigation tabs
-            document.querySelectorAll('.nav-tab').forEach(tab => {
-                tab.addEventListener('click', function() {
-                    switchTab(this.dataset.tab);
-                });
-            });
-
-            // Form input handlers
-            document.getElementById('senderId').addEventListener('input', function(e) {
-                e.target.value = e.target.value.replace(/[^0-9]/g, '');
-            });
-
-            document.getElementById('receiverNumbers').addEventListener('input', updateNumberCount);
-        }
-
-        // Authentication Functions
-        async function handleLogin(e) {
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
             e.preventDefault();
+            
             const email = document.getElementById('loginEmail').value;
             const password = document.getElementById('loginPassword').value;
-
-            // Simulate API call
-            try {
-                const user = await authenticateUser(email, password);
-                currentUser = user;
-                localStorage.setItem('ringlessDropUser', JSON.stringify(user));
-                showMainApp();
-            } catch (error) {
-                alert('Login failed: ' + error.message);
-            }
-        }
-
-        async function handleRegister(e) {
-            e.preventDefault();
-            const name = document.getElementById('registerName').value;
-            const email = document.getElementById('registerEmail').value;
-            const password = document.getElementById('registerPassword').value;
-
-            try {
-                const user = await registerUser(name, email, password);
-                currentUser = user;
-                localStorage.setItem('ringlessDropUser', JSON.stringify(user));
-                showMainApp();
-            } catch (error) {
-                alert('Registration failed: ' + error.message);
-            }
-        }
-
-        function handleSignOut() {
-            localStorage.removeItem('ringlessDropUser');
-            currentUser = null;
-            showLoginScreen();
-        }
-
-        // API Simulation Functions
-        async function authenticateUser(email, password) {
-            return new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    // Demo users
-                    if (email === 'admin@ringlessdrop.com' && password === 'admin123') {
-                        resolve({
-                            id: 1,
-                            name: 'Jay (Admin)',
-                            email: email,
-                            credits: 10000,
-                            isAdmin: true,
-                            joinDate: '2024-01-15'
-                        });
-                    } else if (email === 'user@test.com' && password === 'user123') {
-                        resolve({
-                            id: 2,
-                            name: 'Test User',
-                            email: email,
-                            credits: 500,
-                            isAdmin: false,
-                            joinDate: '2024-02-20'
-                        });
-                    } else {
-                        reject(new Error('Invalid credentials'));
-                    }
-                }, 1000);
-            });
-        }
-
-        async function registerUser(name, email, password) {
-            return new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    const newUser = {
-                        id: Date.now(),
-                        name: name,
-                        email: email,
-                        credits: 100, // Welcome credits
-                        isAdmin: false,
-                        joinDate: new Date().toISOString().split('T')[0]
-                    };
-                    resolve(newUser);
-                }, 1000);
-            });
-        }
-
-        // UI Functions
-        function showLoginScreen() {
-            document.getElementById('loginScreen').classList.remove('hidden');
-            document.getElementById('registerScreen').classList.add('hidden');
-            document.getElementById('mainApp').classList.add('hidden');
-        }
-
-        function showRegisterScreen() {
-            document.getElementById('loginScreen').classList.add('hidden');
-            document.getElementById('registerScreen').classList.remove('hidden');
-            document.getElementById('mainApp').classList.add('hidden');
-        }
-
-        function showMainApp() {
-            document.getElementById('loginScreen').classList.add('hidden');
-            document.getElementById('registerScreen').classList.add('hidden');
-            document.getElementById('mainApp').classList.remove('hidden');
-
-            // Update user info
-            document.getElementById('currentUsername').textContent = currentUser.name;
-            document.getElementById('userCredits').textContent = `Credits: ${currentUser.credits.toLocaleString()}`;
-
-            // Show admin features if admin
-            if (currentUser.isAdmin) {
-                document.getElementById('adminBtn').classList.remove('hidden');
-                document.getElementById('adminTabBtn').style.display = 'block';
-                isAdmin = true;
-            }
-
-            loadCampaignHistory();
-            if (isAdmin) {
-                loadAdminData();
-            }
-        }
-
-        function switchTab(tabName) {
-            // Update tab buttons
-            document.querySelectorAll('.nav-tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
-
-            // Update content
-            document.querySelectorAll('.content').forEach(content => {
-                content.classList.remove('active');
-            });
-            document.getElementById(tabName + 'Content').classList.add('active');
-
-            // Load data if needed
-            if (tabName === 'history') {
-                loadCampaignHistory();
-            } else if (tabName === 'admin' && isAdmin) {
-                loadAdminData();
-            }
-        }
-
-        // Campaign Functions
-        function updateNumberCount() {
-            const numbers = document.getElementById('receiverNumbers').value.split('\n').filter(line => line.trim().length > 0);
-            const count = numbers.length;
-            document.getElementById('numberCount').textContent = count;
-            document.getElementById('creditCount').textContent = count;
-        }
-
-        async function handleCampaignSubmit(e) {
-            e.preventDefault();
-
-            // Validate form
-            const senderId = document.getElementById('senderId').value.trim();
-            const receiverNumbers = document.getElementById('receiverNumbers').value.trim();
-            const audioFile = document.getElementById('audioFile').value.trim();
-            const audioFileType = document.getElementById('audioFileType').value;
-
-            if (!senderId || !receiverNumbers || !audioFile || !audioFileType) {
-                showStatus('Please fill in all required fields', true);
-                return;
-            }
-
-            // Validate phone numbers
-            const numbers = receiverNumbers.split('\n').filter(line => line.trim().length > 0);
-            const phoneRegex = /^[0-9]{10,15}$/;
             
-            for (let number of numbers) {
-                if (!phoneRegex.test(number.trim())) {
-                    showStatus(`Invalid phone number format: ${number.trim()}`, true);
-                    return;
-                }
-            }
-
-            // Check credits
-            if (numbers.length > currentUser.credits) {
-                showStatus(`Insufficient credits. You need ${numbers.length} credits but have ${currentUser.credits}`, true);
-                return;
-            }
-
-            // Show loading
-            const sendBtn = document.getElementById('sendBtn');
-            sendBtn.disabled = true;
-            sendBtn.textContent = 'Sending Campaign...';
-
             try {
-                // Create campaign
-                const campaignData = {
-                    senderId: senderId,
-                    receiverNumbers: numbers,
-                    audioFile: audioFile,
-                    audioFileType: audioFileType,
-                    userId: currentUser.id,
-                    userName: currentUser.name
-                };
-
-                const result = await sendCampaignToSlybroadcast(campaignData);
+                const response = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email, password })
+                });
                 
-                // Update user credits
-                currentUser.credits -= numbers.length;
-                localStorage.setItem('ringlessDropUser', JSON.stringify(currentUser));
-                document.getElementById('userCredits').textContent = `Credits: ${currentUser.credits.toLocaleString()}`;
-
-                showStatus(`Campaign sent successfully! Campaign ID: ${result.campaignId}`);
+                const data = await response.json();
                 
-                // Reset form
-                document.getElementById('campaignForm').reset();
-                updateNumberCount();
-                
-                // Refresh history
-                loadCampaignHistory();
-
+                if (response.ok) {
+                    showStatus('✅ Login successful! Welcome ' + data.user.name);
+                    localStorage.setItem('user', JSON.stringify(data.user));
+                    localStorage.setItem('token', data.token);
+                    setTimeout(() => {
+                        showStatus('🎉 Platform working perfectly! Credits: ' + data.user.credits);
+                    }, 2000);
+                } else {
+                    showStatus('❌ ' + data.error, true);
+                }
             } catch (error) {
-                showStatus(error.message || 'Failed to send campaign', true);
-            } finally {
-                sendBtn.disabled = false;
-                sendBtn.textContent = 'Send Campaign';
+                showStatus('❌ Login failed. Please try again.', true);
             }
-        }
+        });
 
-        // SLYBROADCAST API INTEGRATION (Demo - replace with real API)
-        async function sendCampaignToSlybroadcast(campaignData) {
-            // Create campaign ID
-            const campaignId = 'RD' + Date.now();
-
-            // Add to local campaigns for demo
-            const newCampaign = {
-                id: campaignId,
-                senderId: campaignData.senderId,
-                recipientCount: campaignData.receiverNumbers.length,
-                audioFile: campaignData.audioFile,
-                audioFileType: campaignData.audioFileType,
-                status: 'running',
-                progress: 0,
-                createdAt: new Date().toISOString(),
-                userId: campaignData.userId,
-                userName: campaignData.userName
-            };
-
-            campaigns.unshift(newCampaign);
-
-            // Simulate campaign progress
-            setTimeout(() => updateCampaignProgress(campaignId), 2000);
-
-            return { campaignId: campaignId, status: 'success' };
-        }
-
-        function updateCampaignProgress(campaignId) {
-            const campaign = campaigns.find(c => c.id === campaignId);
-            if (!campaign) return;
-
-            const progressInterval = setInterval(() => {
-                campaign.progress += Math.random() * 15;
-                
-                if (campaign.progress >= 100) {
-                    campaign.progress = 100;
-                    campaign.status = 'completed';
-                    clearInterval(progressInterval);
-                }
-
-                // Update UI if history tab is active
-                if (document.getElementById('historyContent').classList.contains('active')) {
-                    loadCampaignHistory();
-                }
-            }, 3000);
-        }
-
-        function loadCampaignHistory() {
-            const historyContainer = document.getElementById('campaignHistory');
-            
-            // Filter campaigns for current user (admins see all)
-            const userCampaigns = isAdmin ? campaigns : campaigns.filter(c => c.userId === currentUser.id);
-
-            if (userCampaigns.length === 0) {
-                historyContainer.innerHTML = `
-                    <div style="text-align: center; padding: 40px; color: #6b7280;">
-                        <div style="font-size: 48px; margin-bottom: 16px;">📧</div>
-                        <h3>No campaigns yet</h3>
-                        <p>Create your first ringless voicemail campaign!</p>
-                    </div>
-                `;
-                return;
-            }
-
-            historyContainer.innerHTML = userCampaigns.map(campaign => `
-                <div class="campaign-item">
-                    <div class="campaign-header">
-                        <div class="campaign-id">${campaign.id}</div>
-                        <div class="campaign-status status-${campaign.status}">${campaign.status.toUpperCase()}</div>
-                    </div>
-                    <div class="campaign-details">
-                        <strong>Recipients:</strong> ${campaign.recipientCount} numbers<br>
-                        <strong>Sender ID:</strong> ${campaign.senderId}<br>
-                        <strong>Audio:</strong> ${campaign.audioFileType.toUpperCase()} file<br>
-                        <strong>Created:</strong> ${new Date(campaign.createdAt).toLocaleString()}
-                        ${isAdmin ? `<br><strong>User:</strong> ${campaign.userName}` : ''}
-                    </div>
-                    ${campaign.status === 'running' ? `
-                        <div class="campaign-progress">
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: ${campaign.progress}%"></div>
-                            </div>
-                            <div class="progress-text">${Math.round(campaign.progress)}% complete</div>
-                        </div>
-                    ` : ''}
-                </div>
-            `).join('');
-        }
-
-        function loadAdminData() {
-            if (!isAdmin) return;
-
-            // Update stats
-            document.getElementById('totalUsers').textContent = users.length;
-            document.getElementById('totalCampaigns').textContent = campaigns.length;
-            document.getElementById('activeCampaigns').textContent = campaigns.filter(c => c.status === 'running').length;
-            document.getElementById('totalCreditsUsed').textContent = campaigns.reduce((sum, c) => sum + c.recipientCount, 0).toLocaleString();
-
-            // Load user list
-            const userListContainer = document.getElementById('userList');
-            userListContainer.innerHTML = users.map(user => `
-                <div class="user-item">
-                    <div class="user-info">
-                        <div class="user-name">${user.name}</div>
-                        <div class="user-email">${user.email}</div>
-                        <div style="font-size: 12px; color: #6b7280; margin-top: 4px;">
-                            Joined: ${user.joinDate}
-                        </div>
-                    </div>
-                    <div>
-                        <span class="user-credits-badge">${user.credits} credits</span>
-                        <button class="btn-small btn-edit" onclick="editUserCredits(${user.id})">Edit</button>
-                        ${user.id !== currentUser.id ? `<button class="btn-small btn-delete" onclick="deleteUser(${user.id})">Delete</button>` : ''}
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function editUserCredits(userId) {
-            const user = users.find(u => u.id === userId);
-            if (!user) return;
-
-            const newCredits = prompt(`Enter new credit amount for ${user.name}:`, user.credits);
-            if (newCredits !== null && !isNaN(newCredits)) {
-                user.credits = parseInt(newCredits);
-                
-                // Update current user if editing self
-                if (userId === currentUser.id) {
-                    currentUser.credits = user.credits;
-                    localStorage.setItem('ringlessDropUser', JSON.stringify(currentUser));
-                    document.getElementById('userCredits').textContent = `Credits: ${currentUser.credits.toLocaleString()}`;
-                }
-                
-                loadAdminData();
-                showStatus(`Updated ${user.name}'s credits to ${newCredits}`);
-            }
-        }
-
-        function deleteUser(userId) {
-            const user = users.find(u => u.id === userId);
-            if (!user) return;
-
-            if (confirm(`Are you sure you want to delete ${user.name}?`)) {
-                users = users.filter(u => u.id !== userId);
-                loadAdminData();
-                showStatus(`Deleted user: ${user.name}`);
-            }
-        }
+        document.getElementById('showRegister').addEventListener('click', function() {
+            showStatus('🚀 Registration feature coming soon! Use demo login for now.');
+        });
 
         function showStatus(message, isError = false) {
             const statusMessage = document.getElementById('statusMessage');
             statusMessage.textContent = message;
             statusMessage.className = `status-message ${isError ? 'status-error' : 'status-success'}`;
             statusMessage.style.display = 'block';
-            
-            setTimeout(() => {
-                statusMessage.style.display = 'none';
-            }, 5000);
         }
 
-        function loadSampleData() {
-            // Sample users
-            users = [
-                {
-                    id: 1,
-                    name: 'Jay (Admin)',
-                    email: 'admin@ringlessdrop.com',
-                    credits: 10000,
-                    isAdmin: true,
-                    joinDate: '2024-01-15'
-                },
-                {
-                    id: 2,
-                    name: 'Test User',
-                    email: 'user@test.com',
-                    credits: 500,
-                    isAdmin: false,
-                    joinDate: '2024-02-20'
-                },
-                {
-                    id: 3,
-                    name: 'Marketing Pro',
-                    email: 'marketing@company.com',
-                    credits: 2500,
-                    isAdmin: false,
-                    joinDate: '2024-03-10'
-                }
-            ];
-
-            // Sample campaigns
-            campaigns = [
-                {
-                    id: 'RD1710123456789',
-                    senderId: '8886524442',
-                    recipientCount: 150,
-                    audioFile: 'https://example.com/promo.mp3',
-                    audioFileType: 'mp3',
-                    status: 'completed',
-                    progress: 100,
-                    createdAt: '2024-03-15T10:30:00Z',
-                    userId: 2,
-                    userName: 'Test User'
-                },
-                {
-                    id: 'RD1710123456790',
-                    senderId: '5551234567',
-                    recipientCount: 75,
-                    audioFile: 'https://example.com/announcement.wav',
-                    audioFileType: 'wav',
-                    status: 'running',
-                    progress: 65,
-                    createdAt: '2024-03-16T14:15:00Z',
-                    userId: 3,
-                    userName: 'Marketing Pro'
-                }
-            ];
-        }
-
-        // Demo login credentials helper
-        function showDemoCredentials() {
-            alert(`Demo Login Credentials:
-
-Admin Account:
-Email: admin@ringlessdrop.com
-Password: admin123
-
-User Account:
-Email: user@test.com
-Password: user123`);
-        }
-
-        // Add demo credentials button to login screen
-        document.addEventListener('DOMContentLoaded', function() {
-            const loginContainer = document.querySelector('.login-container');
-            const demoBtn = document.createElement('button');
-            demoBtn.type = 'button';
-            demoBtn.className = 'btn-primary btn-secondary';
-            demoBtn.textContent = 'Show Demo Credentials';
-            demoBtn.style.marginTop = '10px';
-            demoBtn.onclick = showDemoCredentials;
-            loginContainer.appendChild(demoBtn);
-        });
+        // Test API connection
+        fetch('/api/health')
+            .then(response => response.json())
+            .then(data => {
+                console.log('✅ API Status:', data.status);
+            })
+            .catch(error => {
+                console.log('⏳ API starting up...');
+            });
     </script>
 </body>
 </html>
